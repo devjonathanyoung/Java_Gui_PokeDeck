@@ -20,8 +20,10 @@ public class IdManager {
 		URI filePath = Paths.get("Ressources", "idManagerData.txt").toUri();
 		try {
 			List<String> lines = Files.readAllLines(Paths.get(filePath));
-			if(lines.size() > 1){
+			if(lines.size() > 0){
 				this.currentId = Integer.parseInt(lines.get(0));
+			}
+			if(lines.size() > 1){
 				String lineFreeIds = lines.get(1);
 				String[] splited = lineFreeIds.split(",");
 				for(String id: splited){

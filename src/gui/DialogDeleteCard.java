@@ -10,6 +10,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import sync.Config;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,8 +21,8 @@ import java.awt.event.ActionEvent;
 public class DialogDeleteCard extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField delIdCard;
-	private JLabel lblCardId;
+	private JTextField idToDeleteField;
+	private JLabel lblCardToDelete;
 
 	public DialogDeleteCard() {
 		setBounds(100, 100, 450, 300);
@@ -27,43 +30,45 @@ public class DialogDeleteCard extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		{
-			lblCardId = new JLabel("Card ID:");
-			lblCardId.setBounds(28, 100, 69, 20);
-			contentPanel.add(lblCardId);
-		}
-		
-		delIdCard = new JTextField();
-		lblCardId.setLabelFor(delIdCard);
-		delIdCard.setBounds(97, 97, 146, 26);
-		contentPanel.add(delIdCard);
-		delIdCard.setColumns(10);
-		
-		JLabel lblNewLabel = new JLabel("Delete Card");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(0, 16, 430, 20);
-		contentPanel.add(lblNewLabel);
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
+
+		lblCardToDelete = new JLabel("Card ID:");
+		lblCardToDelete.setBounds(28, 100, 69, 20);
+		contentPanel.add(lblCardToDelete);
+
+		idToDeleteField = new JTextField();
+		lblCardToDelete.setLabelFor(idToDeleteField);
+		idToDeleteField.setBounds(97, 97, 146, 26);
+		contentPanel.add(idToDeleteField);
+		idToDeleteField.setColumns(10);
+
+		JLabel titleDeleteCardDialog = new JLabel("Delete Card");
+		titleDeleteCardDialog.setFont(new Font("Tahoma", Font.BOLD, 20));
+		titleDeleteCardDialog.setHorizontalAlignment(SwingConstants.CENTER);
+		titleDeleteCardDialog.setBounds(0, 16, 430, 20);
+		contentPanel.add(titleDeleteCardDialog);
+
+		JPanel buttonPane = new JPanel();
+		buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		getContentPane().add(buttonPane, BorderLayout.SOUTH);
+		JButton okButton = new JButton("OK");
+		okButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Config.poke.remove(Integer.parseInt(idToDeleteField.getText()));
+				dispose();
 			}
-			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						dispose();
-					}
-				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+		});
+		okButton.setActionCommand("OK");
+		buttonPane.add(okButton);
+		getRootPane().setDefaultButton(okButton);
+
+		JButton cancelButton = new JButton("Cancel");
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
 			}
-		}
+		});
+		cancelButton.setActionCommand("Cancel");
+		buttonPane.add(cancelButton);
+
 	}
 }

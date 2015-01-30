@@ -65,6 +65,7 @@ public class DialogAddEnergy extends JDialog {
 		
 		CBExpansion = new JComboBox<String>();
 		CBExpansion.setBounds(215, 180, 250, 25);
+		CBExpansion = Config.fillCBoxExpansionList(CBExpansion);
 		contentPanel.add(CBExpansion);
 		
 		JLabel lblExpansion = new JLabel("Expansion :");
@@ -79,7 +80,8 @@ public class DialogAddEnergy extends JDialog {
 		JButton okButton = new JButton("OK");
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String[] cardData = {"Energy",CBEnergyList.getSelectedItem().toString(), CollectionCardNumberField.getText(), CBExpansion.getSelectedItem().toString()};
+				String[] cardData = {"Energy",CBEnergyList.getSelectedItem().toString(),
+						CollectionCardNumberField.getText(), CBExpansion.getSelectedItem().toString()};
 				Config.poke.addCard(cardData);
 				dispose();
 			}

@@ -1,51 +1,44 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.Font;
 
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
+import sync.Config;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 public class Main_CollectionManagerGUI {
 
 	private JFrame frmCollectionManager;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Main_CollectionManagerGUI window = new Main_CollectionManagerGUI();
-					window.frmCollectionManager.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public Main_CollectionManagerGUI() {	
 		this.GUIinitialize();
+		Config conf = new Config();
+		this.frmCollectionManager.setVisible(true);
 	}
 	
 	private void GUIinitialize() {
 		frmCollectionManager = new JFrame();
+		frmCollectionManager.setIconImage(Toolkit.getDefaultToolkit().getImage(Config.getPathFavicon()));
 		frmCollectionManager.setTitle("Collection Manager");
+		frmCollectionManager.setResizable(false);
 		frmCollectionManager.setBounds(100, 100, 600, 450);
 		frmCollectionManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCollectionManager.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Main Menu");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(0, 16, 580, 20);
-		frmCollectionManager.getContentPane().add(lblNewLabel);
+		JLabel titleMainMenu = new JLabel("Main Menu");
+		titleMainMenu.setHorizontalAlignment(SwingConstants.CENTER);
+		titleMainMenu.setFont(new Font("Tahoma", Font.BOLD, 20));
+		titleMainMenu.setBounds(0, 16, 580, 20);
+		frmCollectionManager.getContentPane().add(titleMainMenu);
 		
 		JButton btnAddEnergy = new JButton("Add Energy\r\n");
 		btnAddEnergy.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -63,7 +56,7 @@ public class Main_CollectionManagerGUI {
 		btnAddEnergy.setBounds(30, 120, 150, 64);
 		frmCollectionManager.getContentPane().add(btnAddEnergy);
 		
-		JButton btnAddPokemon = new JButton("Add Creature\r\n");
+		JButton btnAddPokemon = new JButton("Add Pokemon \r\n");
 		btnAddPokemon.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAddPokemon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -143,9 +136,9 @@ public class Main_CollectionManagerGUI {
 		btnShowAllEnergy.setBounds(30, 200, 150, 64);
 		frmCollectionManager.getContentPane().add(btnShowAllEnergy);
 		
-		JButton btnShowAllCreature = new JButton("Show All Creatures\r\n");
-		btnShowAllCreature.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnShowAllCreature.addActionListener(new ActionListener() {
+		JButton btwShowAllPokemon = new JButton("Show All Pokemons\n");
+		btwShowAllPokemon.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btwShowAllPokemon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					DialogShowAllPokemonCards dialog = new DialogShowAllPokemonCards();
@@ -156,8 +149,8 @@ public class Main_CollectionManagerGUI {
 				}
 			}
 		});
-		btnShowAllCreature.setBounds(210, 200, 150, 64);
-		frmCollectionManager.getContentPane().add(btnShowAllCreature);
+		btwShowAllPokemon.setBounds(210, 200, 150, 64);
+		frmCollectionManager.getContentPane().add(btwShowAllPokemon);
 		
 		JButton btnShowAllItem = new JButton("Show All Trainers");
 		btnShowAllItem.addActionListener(new ActionListener() {
@@ -174,5 +167,19 @@ public class Main_CollectionManagerGUI {
 		btnShowAllItem.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnShowAllItem.setBounds(390, 200, 150, 64);
 		frmCollectionManager.getContentPane().add(btnShowAllItem);
+		
+		frmCollectionManager.addWindowListener(new java.awt.event.WindowAdapter() {
+		    @Override
+		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+		        if (JOptionPane.showConfirmDialog(frmCollectionManager, 
+		            "Are you sure to close this window?", "Really Closing?", 
+		            JOptionPane.YES_NO_OPTION,
+		            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+		        	Config.poke.saveDeck();
+		            System.exit(0);
+		        }
+		    }
+		});
+
 	}
 }

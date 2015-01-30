@@ -9,11 +9,16 @@ import java.util.List;
 
 import javax.swing.JComboBox;
 
-import controller.PokeDeck;
+import data.PokeDeckDB;
+import data.TCGCard;
 
 public class Config {
 	
-	public static PokeDeck poke = new PokeDeck();
+	public static PokeDeckDB poke;
+	
+	public Config(){
+		poke = new PokeDeckDB();
+	}
 	
 	public static List<String> getEnergyList(){
 		List<String> energyList = new ArrayList<String>();
@@ -22,7 +27,7 @@ public class Config {
 		energyList.add("Water");
 		energyList.add("Lightning");
 		energyList.add("Psychic");
-		energyList.add("Fightning");
+		energyList.add("Fighting");
 		energyList.add("Darkness");
 		energyList.add("Metal");
 		energyList.add("Fairy");
@@ -30,6 +35,7 @@ public class Config {
 		energyList.add("Colorless");
 		return energyList;
 	}
+	
 	public static List<String> getEvolStageList(){
 		List<String> evolStageList = new ArrayList<String>();
 		evolStageList.add("Baby Pokemon");
@@ -38,6 +44,7 @@ public class Config {
 		evolStageList.add("Stage 2 Pokemon");
 		return evolStageList;
 	}
+	
 	public static List<String> getExpansionList(){
 		List<String> expansionList = new ArrayList<String>();
 		URI filePath = Paths.get("Ressources", "ExpansionList.txt").toUri();
@@ -51,6 +58,7 @@ public class Config {
         }		
 		return expansionList;
 	}
+	
 	public static List<String> getTrainerTypeList(){
 		List<String> trainerTypeList = new ArrayList<String>();
 		URI filePath = Paths.get("Ressources", "TrainerTypeList.txt").toUri();
@@ -64,42 +72,63 @@ public class Config {
         }		
 		return trainerTypeList;
 	}
+	
 	public static Object[][] fetchAllData() {
-		Object[][] data = {
-			    {new Integer(0), "Energy","Darkness Energy", "Darkness","3/102","Base Set"},
-			    {new Integer(1), "Pokemon","Bulbasaur", "Grass","32/104", "Base Set"}
-			};
+		List<TCGCard> EnergyData = poke.fetchCards("All");
+		Object[][] data = new Object[EnergyData.size()][6];
+		for(int i = 0; i < EnergyData.size(); i++){
+			data[i][0] = new Integer(EnergyData.get(i).getData().get("id"));
+			data[i][1] = EnergyData.get(i).getData().get("CardType");
+			data[i][2] = EnergyData.get(i).getData().get("CardName");
+			data[i][3] = EnergyData.get(i).getData().get("EnergyType");
+			data[i][4] = EnergyData.get(i).getData().get("CollectionCardNumber");
+			data[i][5] = EnergyData.get(i).getData().get("Expansion");
+		}
 		return data;
 	}
+	
 	public static Object[][] fetchEnergyCardsData() {
-		Object[][] data = {
-			    {new Integer(2), "Energy of Darkness", "Darkness",
-			    	"1/102","Base Set"},
-			    {new Integer(3), "Energy of Grass", "Grass",
-			    	"2/102","Base Set"}
-			};
+		List<TCGCard> EnergyData = poke.fetchCards("Energy");
+		Object[][] data = new Object[EnergyData.size()][5];
+		for(int i = 0; i < EnergyData.size(); i++){
+			data[i][0] = new Integer(EnergyData.get(i).getData().get("id"));
+			data[i][1] = EnergyData.get(i).getData().get("CardName");
+			data[i][2] = EnergyData.get(i).getData().get("EnergyType");
+			data[i][3] = EnergyData.get(i).getData().get("CollectionCardNumber");
+			data[i][4] = EnergyData.get(i).getData().get("Expansion");
+		}
 		return data;
 	}
+	
 	public static Object[][] fetchPokemonCardsData() {
-		Object[][] data = {
-			    {new Integer(3), "Pikachu", "Lightning",new Integer(200), "Basic Pokemon","22/102","Base Set"},
-			    {new Integer(4), "Bulbasaur", "Grass",new Integer(150), "Basic Pokemon","32/104", "Base Set"}
-			};
+		List<TCGCard> EnergyData = poke.fetchCards("Pokemon");
+		Object[][] data = new Object[EnergyData.size()][7];
+		for(int i = 0; i < EnergyData.size(); i++){
+			data[i][0] = new Integer(EnergyData.get(i).getData().get("id"));
+			data[i][1] = EnergyData.get(i).getData().get("CardName");
+			data[i][2] = EnergyData.get(i).getData().get("EnergyType");
+			data[i][3] = EnergyData.get(i).getData().get("HP");
+			data[i][4] = EnergyData.get(i).getData().get("EvolStage");
+			data[i][5] = EnergyData.get(i).getData().get("CollectionCardNumber");
+			data[i][6] = EnergyData.get(i).getData().get("Expansion");
+		}
 		return data;
 	}
 	public static Object[][] fetchTrainerCardsData() {
-		Object[][] data = {
-			    {new Integer(5), "Pokeball", "Item",
-			    	"Flip a coin. If heads, search your deck for a Pokemon and put it in your hand", 
-			    	"You may play as many item card as you like during your turn",
-			    	"90/102","Base Set"},
-			    {new Integer(6), "Potion", "Item",
-			    		"Heal 30 Damage from 1 of your Pokemon",
-			    		"You may play as many item card as you like during your turn",
-				    	"89/102","Base Set"}
-			};
+		List<TCGCard> TrainerData = poke.fetchCards("Trainer");
+		Object[][] data = new Object[TrainerData.size()][7];
+		for(int i = 0; i < TrainerData.size(); i++){
+			data[i][0] = new Integer(TrainerData.get(i).getData().get("id"));
+			data[i][1] = TrainerData.get(i).getData().get("CardName");
+			data[i][2] = TrainerData.get(i).getData().get("TrainerType");
+			data[i][3] = TrainerData.get(i).getData().get("Description");
+			data[i][4] = TrainerData.get(i).getData().get("TrainerRule");
+			data[i][5] = TrainerData.get(i).getData().get("CollectionCardNumber");
+			data[i][6] = TrainerData.get(i).getData().get("Expansion");
+		}
 		return data;
 	}
+	
 	public static JComboBox<String> fillCBoxEnergyList(JComboBox<String> combobox){
 		List<String> Elist = Config.getEnergyList();
 		for(String energyType:Elist){
@@ -107,6 +136,7 @@ public class Config {
 		}
 		return combobox;
 	}
+	
 	public static JComboBox<String> fillCBoxEvolStageList(JComboBox<String> combobox){
 		List<String> EvolList = Config.getEvolStageList();
 		for(String evolStage:EvolList){
@@ -114,6 +144,7 @@ public class Config {
 		}
 		return combobox;
 	}
+	
 	public static JComboBox<String> fillCBoxExpansionList(JComboBox<String> combobox){
 		List<String> ExpansionList = Config.getExpansionList();
 		for(String expansion:ExpansionList){
@@ -121,6 +152,7 @@ public class Config {
 		}
 		return combobox;
 	}
+	
 	public static JComboBox<String> fillCBoxTrainerTypeList(JComboBox<String> combobox){
 		List<String> TrainerTypeList = Config.getTrainerTypeList();
 		for(String trainerType:TrainerTypeList){
@@ -129,5 +161,7 @@ public class Config {
 		return combobox;
 	}
 	
-
+	public static String getPathFavicon(){
+		return(Paths.get("Ressources", "faviconPokedeck.gif").toString());
+	}
 }

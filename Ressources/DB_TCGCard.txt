@@ -1,0 +1,4 @@
+Energy of Grass,Energy,Grass,1,1 - Base Set,1/102
+Pikachu,Basic Pokemon,Pokemon,Lightning,80,3,1 - Base Set,30/102
+Item,Potion,Heal 30 HP from a pokemon.,Trainer,Colorless,4,You may play as many trainer card as you want this turn.,1 - Base Set,60/102
+Energy of Darkness,Energy,Darkness,2,1 - Base Set,7/102
