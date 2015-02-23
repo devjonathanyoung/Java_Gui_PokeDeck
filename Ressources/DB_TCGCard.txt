@@ -2,3 +2,15 @@ Energy of Grass,Energy,Grass,1,1 - Base Set,1/102
 Pikachu,Basic Pokemon,Pokemon,Lightning,80,3,1 - Base Set,30/102
 Item,Potion,Heal 30 HP from a pokemon.,Trainer,Colorless,4,You may play as many trainer card as you want this turn.,1 - Base Set,60/102
 Energy of Darkness,Energy,Darkness,2,1 - Base Set,7/102
+Energy of Grass,Energy,Grass,5,1 - Base Set,20/102
+Energy of Grass,Energy,Grass,6,1 - Base Set,20/102
+Ratata,Basic Pokemon,Pokemon,Grass,200,7,1 - Base Set,20/99
+Item,Hi-Potion,Heal 60HP to one of your pokemon,Trainer,Colorless,8,Only play 1 "Hi-Potion" per Turn,1 - Base Set,20/102
+Energy of Grass,Energy,Grass,9,1 - Base Set,20/102
+Energy of Grass,Energy,Grass,10,1 - Base Set,20/120
+Energy of Fighting,Energy,Fighting,11,1 - Base Set,30/102
+Energy of Metal,Energy,Metal,12,1 - Base Set,34/102
+raichu,Stage 1 Pokemon,Pokemon,Grass,100,13,1 - Base Set,35/102
+Energy of Dragon,Energy,Dragon,14,4 - Base Set 2,100/130
+Metang,Basic Pokemon,Pokemon,Grass,190,15,2 - Jungle,120/140
+Item,MasterBall,Enemy current pokemon cannot move for 1 turn,Trainer,Colorless,16,You may only play 1 "Masterball" per Game,4 - Base Set 2,100/140
