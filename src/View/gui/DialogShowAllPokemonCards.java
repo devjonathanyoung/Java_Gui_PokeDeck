@@ -19,6 +19,10 @@ import javax.swing.table.TableColumnModel;
 import View.JTablesModel.ShowAllPokemonCardsModel;
 
 @SuppressWarnings("serial")
+/*
+ * This JDialog fetches and display all Pokemon cards currently 
+ * in the deck with additionnal details (vs ShowAllCards)
+ */
 public class DialogShowAllPokemonCards extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();

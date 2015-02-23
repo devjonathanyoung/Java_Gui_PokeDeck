@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import Modele.data_management.PokeDeckDB;
 import View.gui.CollectionManagerGUI;
 
+/*
+ * This class opens the GUI and contains the link to the Pokedeck Database 
+ */
 public class Ctrl_Pokedeck {
 		
 	public static PokeDeckDB DECK;

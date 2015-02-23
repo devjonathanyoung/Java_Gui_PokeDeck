@@ -3,6 +3,9 @@ package Modele.data;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * Defines the attributes each Card class must have and methods
+ */
 public abstract class TCGCard {
 	private int id;
 	private String CardType;

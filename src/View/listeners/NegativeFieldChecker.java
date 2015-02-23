@@ -6,6 +6,10 @@ import java.awt.event.FocusListener;
 
 import javax.swing.JTextField;
 
+/*
+ * Defines the transformation if the targeted JTextField 
+ * does meet our expectations (ex: "contains some numbers when we dont expect them")
+ */
 public class NegativeFieldChecker implements FocusListener{
 	JTextField FieldtoCheck = null;
 	String Pattern = "";

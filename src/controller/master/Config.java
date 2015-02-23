@@ -9,8 +9,13 @@ import java.util.List;
 
 import javax.swing.JComboBox;
 
+/* 
+ 	This class provide the items to Load in each combobox
+ 	and the path to use to find the Favicon
+ */
 public class Config {
 	
+	//Returns the options for the energyList combobox
 	public static List<String> getEnergyList(){
 		List<String> energyList = new ArrayList<String>();
 		energyList.add("Grass");
@@ -27,6 +32,7 @@ public class Config {
 		return energyList;
 	}
 	
+	//Returns the options for the EvolutionStage combobox
 	public static List<String> getEvolStageList(){
 		List<String> evolStageList = new ArrayList<String>();
 		evolStageList.add("Baby Pokemon");
@@ -35,6 +41,11 @@ public class Config {
 		evolStageList.add("Stage 2 Pokemon");
 		return evolStageList;
 	}
+	
+	/*
+	 * Read the file containing the list of all expansion
+	 * Returns the options for the Expansion combobox read in the file
+	 */
 	
 	public static List<String> getExpansionList(){
 		List<String> expansionList = new ArrayList<String>();
@@ -50,6 +61,10 @@ public class Config {
 		return expansionList;
 	}
 	
+	/*
+	 * Read the file containing the list of all possible trainer Type
+	 * Returns the options for the Trainer Type combobox read in the file
+	 */
 	public static List<String> getTrainerTypeList(){
 		List<String> trainerTypeList = new ArrayList<String>();
 		URI filePath = Paths.get("Ressources", "TrainerTypeList.txt").toUri();
@@ -64,6 +79,10 @@ public class Config {
 		return trainerTypeList;
 	}
 	
+	/*
+	 *  Next 4 functions fills each Combobox with the options loaded in the previous 
+	 *  functions
+	 */
 	public static JComboBox<String> fillCBoxEnergyList(JComboBox<String> combobox){
 		List<String> Elist = Config.getEnergyList();
 		for(String energyType:Elist){
@@ -96,6 +115,7 @@ public class Config {
 		return combobox;
 	}
 	
+	//Returns the path for application Favicon
 	public static String getPathFavicon(){
 		return(Paths.get("Ressources", "faviconPokedeck.gif").toString());
 	}

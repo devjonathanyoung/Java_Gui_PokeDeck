@@ -13,6 +13,11 @@ import java.util.Map;
 import Modele.data.*;
 import Modele.data_management.IdManager;
 
+/*
+ * This is our database class
+ * We can ADD,DELETE,SELECT on it
+ * but only store TCGCards
+ */
 public class PokeDeckDB {
 	private List<TCGCard> Deck;
 	private IdManager Idm;

@@ -1,6 +1,7 @@
 package View.gui;
 
 import javax.swing.JDialog;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,10 +17,17 @@ import Controller.master.Ctrl_Pokedeck;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+
+
+/*
+ * Main GUI
+ * This Frame is launched when program start and then proceeds
+ * for each button the corresponding JDIALOG
+ */
 public class CollectionManagerGUI {
 
 	private JFrame frmCollectionManager;
-	
+
 	public CollectionManagerGUI() {	
 		this.GUIinitialize();
 		Config conf = new Config();

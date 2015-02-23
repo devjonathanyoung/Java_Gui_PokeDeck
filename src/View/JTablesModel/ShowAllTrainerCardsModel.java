@@ -6,6 +6,10 @@ import Controller.master.Config;
 import Controller.master.Ctrl_Pokedeck;
 
 @SuppressWarnings("serial")
+/*
+ * This class defines the model and fetches the data to display
+ * for the showAllTrainerCardsJDialog
+ */
 public class ShowAllTrainerCardsModel extends AbstractTableModel{
 	
 	private String[] columnNames = {"id","cardName","TrainerType","Description","Trainer Rule","CardNumber","Expansion"};

@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import Controller.master.Config;
 import Controller.master.Ctrl_Pokedeck;
 
 import java.awt.Font;
@@ -19,6 +18,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
+//This class is a JDialog which asks us for an Id and try
+//To delete the corresponding card
 public class DialogDeleteCard extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();

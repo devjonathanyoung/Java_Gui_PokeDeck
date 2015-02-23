@@ -9,6 +9,12 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Each card have an Id when saved
+ * So this class makes sure we do not have gap between id
+ * but also we do not have 2 different card with the same id
+ * unless the user tampers with the files it should be bulletproof 
+ */
 public class IdManager {
 	
 	private int currentId;
@@ -35,6 +41,10 @@ public class IdManager {
 		}
 	}
 	
+	/*
+	 * Check if we have a freeId (of a card we removed) and returns it
+	 * or returns the next id of the current deck
+	 */
 	public int getNextId(){
 		if(this.freeIds.isEmpty()){
 			this.currentId++;
@@ -44,10 +54,13 @@ public class IdManager {
 			return freeIds.remove(0);
 		}
 	}
+	
+	//When a Card is erased we make sure to store the free Id to avoid gaps between ids
 	public void newFreeIndex(int i){
 		this.freeIds.add(i);
 	}
 	
+	//Let's make sure next time we open the program we do not lose our ids
 	public void saveIdManagerData(){
 		Path f = Paths.get("Ressources", "idManagerData.txt");
 		try {

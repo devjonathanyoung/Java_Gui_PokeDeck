@@ -20,6 +20,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
+/*
+ * This JDialog fetches and display all cards currently in the deck
+ */
 public class DialogShowAllCards extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();

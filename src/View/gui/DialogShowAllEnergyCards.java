@@ -20,6 +20,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
+/*
+ * This JDialog fetches and display all Energy cards currently 
+ * in the deck with additionnal details (vs ShowAllCards)
+ */
 public class DialogShowAllEnergyCards extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();

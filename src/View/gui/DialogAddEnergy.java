@@ -25,6 +25,10 @@ import javax.swing.JTextField;
 
 import View.listeners.FieldChecker;
 
+/*
+ * JDialog where we can set each of a new Energy Card Attribute and
+ * then save it to the DECK
+ */
 @SuppressWarnings("serial")
 public class DialogAddEnergy extends JDialog {
 
@@ -91,6 +95,9 @@ public class DialogAddEnergy extends JDialog {
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String CollecNumber = CollectionCardNumberField.getText();
+				
+				//Let's make sure our CollectionCard Number matches what we are expecting 
+				//And Add it to the deck if it's valid
 				if(CollecNumber.matches("[1-9][0-9]{0,2}/[0-9]{2,3}")){
 					String[] cardData = {"Energy",CBEnergyList.getSelectedItem().toString(),
 							CollecNumber, CBExpansion.getSelectedItem().toString()};

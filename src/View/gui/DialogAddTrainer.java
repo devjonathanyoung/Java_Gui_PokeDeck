@@ -128,12 +128,19 @@ public class DialogAddTrainer extends JDialog {
 		JButton okButton = new JButton("OK");
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//Getting each of the field where the user have to input something
 				String CollecNumber = CollectionCardNumberField.getText();
 				String Name = nameField.getText();
+				
+				//Checking if each field matches our expectations
 				boolean check1 = CollecNumber.matches("[1-9][0-9]{0,2}/[0-9]{2,3}");
 				boolean check2 = !(Name.matches(".*\\d.*"));
+				
+				//If they doesn't let's give the user a RED warning
 				if(!check1) CollectionCardNumberField.setBackground(Color.red);
 				if(!check2) nameField.setBackground(Color.red);
+				
+				//If all is valid we add the pokemon to the deck
 				if(check1 && check2){
 					String[] cardData = {"Trainer",Name,
 							CollecNumber,

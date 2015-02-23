@@ -5,6 +5,10 @@ import javax.swing.table.AbstractTableModel;
 import Controller.master.Ctrl_Pokedeck;
 
 @SuppressWarnings("serial")
+/*
+ * This class defines the model and fetches the data to display
+ * for the showAllEnergyCardsJDialog
+ */
 public class ShowAllEnergyCardsModel extends AbstractTableModel{
 	
 	private String[] columnNames = {"id","cardName","EnergyType","CardNumber","Expansion"};

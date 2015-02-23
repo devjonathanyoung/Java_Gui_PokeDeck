@@ -18,6 +18,10 @@ import javax.swing.table.TableColumnModel;
 import View.JTablesModel.ShowAllTrainerCardsModel;
 
 @SuppressWarnings("serial")
+/*
+ * This JDialog fetches and display all Trainer cards currently 
+ * in the deck with additionnal details (vs ShowAllCards)
+ */
 public class DialogShowAllTrainerCards extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
