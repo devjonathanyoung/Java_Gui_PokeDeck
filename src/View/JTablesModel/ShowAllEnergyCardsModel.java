@@ -2,13 +2,13 @@ package View.JTablesModel;
 
 import javax.swing.table.AbstractTableModel;
 
-import Controller.master.Config;
+import Controller.master.Ctrl_Pokedeck;
 
 @SuppressWarnings("serial")
 public class ShowAllEnergyCardsModel extends AbstractTableModel{
 	
 	private String[] columnNames = {"id","cardName","EnergyType","CardNumber","Expansion"};
-    private Object[][] data = Config.DECK.fetchEnergyCardsData();
+    private Object[][] data = Ctrl_Pokedeck.DECK.fetchEnergyCardsData();
 
     public int getColumnCount() {
         return columnNames.length;

@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
 import Controller.master.Config;
+import Controller.master.Ctrl_Pokedeck;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -175,7 +176,7 @@ public class CollectionManagerGUI {
 		            "Are you sure to close this window?", "Really Closing?", 
 		            JOptionPane.YES_NO_OPTION,
 		            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-		        	Config.DECK.saveDeck();
+		        	Ctrl_Pokedeck.DECK.saveDeck();
 		            System.exit(0);
 		        }
 		    }

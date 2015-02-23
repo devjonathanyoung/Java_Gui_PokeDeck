@@ -3,12 +3,13 @@ package View.JTablesModel;
 import javax.swing.table.AbstractTableModel;
 
 import Controller.master.Config;
+import Controller.master.Ctrl_Pokedeck;
 
 @SuppressWarnings("serial")
 public class ShowAllPokemonCardsModel extends AbstractTableModel{
 	
 	private String[] columnNames = {"id","cardName","EnergyType","HealthPoint","EvolutionStage","CardNumber","Expansion"};
-    private Object[][] data = Config.DECK.fetchPokemonCardsData();
+    private Object[][] data = Ctrl_Pokedeck.DECK.fetchPokemonCardsData();
 
     public int getColumnCount() {
         return columnNames.length;

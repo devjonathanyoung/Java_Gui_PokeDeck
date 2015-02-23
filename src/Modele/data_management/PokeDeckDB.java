@@ -49,7 +49,7 @@ public class PokeDeckDB {
 		}
 		return false;
 	}
-	private List<TCGCard> fetchCards(String cardType){
+	public List<TCGCard> fetchCards(String cardType){
 		List<TCGCard> res = new ArrayList<TCGCard>();
 		for(TCGCard c:Deck){
 			if(c.getData().get("CardType").equals(cardType)){

@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Controller.master.Config;
+import Controller.master.Ctrl_Pokedeck;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -53,7 +54,7 @@ public class DialogDeleteCard extends JDialog {
 		JButton okButton = new JButton("OK");
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Config.DECK.remove(Integer.parseInt(idToDeleteField.getText()));
+				Ctrl_Pokedeck.DECK.remove(Integer.parseInt(idToDeleteField.getText()));
 				dispose();
 			}
 		});

@@ -16,6 +16,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import Controller.master.Config;
+import Controller.master.Ctrl_Pokedeck;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -93,7 +94,7 @@ public class DialogAddEnergy extends JDialog {
 				if(CollecNumber.matches("[1-9][0-9]{0,2}/[0-9]{2,3}")){
 					String[] cardData = {"Energy",CBEnergyList.getSelectedItem().toString(),
 							CollecNumber, CBExpansion.getSelectedItem().toString()};
-					Config.DECK.addCard(cardData);
+					Ctrl_Pokedeck.DECK.addCard(cardData);
 					dispose();
 				}
 				else{

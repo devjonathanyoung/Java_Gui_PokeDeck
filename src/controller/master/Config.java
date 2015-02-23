@@ -9,16 +9,7 @@ import java.util.List;
 
 import javax.swing.JComboBox;
 
-import Modele.data_management.PokeDeckDB;
-import Modele.data.TCGCard;
-
 public class Config {
-	
-	public static PokeDeckDB DECK;
-	
-	public Config(){
-		DECK = new PokeDeckDB();
-	}
 	
 	public static List<String> getEnergyList(){
 		List<String> energyList = new ArrayList<String>();

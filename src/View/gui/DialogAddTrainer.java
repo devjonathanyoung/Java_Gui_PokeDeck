@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 
 import Controller.master.Config;
+import Controller.master.Ctrl_Pokedeck;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -140,7 +141,7 @@ public class DialogAddTrainer extends JDialog {
 							CBTrainerType.getSelectedItem().toString(),
 							DescriptionField.getText(),
 							TrainerRuleField.getText()};
-					Config.DECK.addCard(cardData);
+					Ctrl_Pokedeck.DECK.addCard(cardData);
 					dispose();
 				}	
 			}

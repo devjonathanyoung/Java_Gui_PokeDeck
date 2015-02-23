@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 
 import View.listeners.FieldChecker;
 import Controller.master.Config;
+import Controller.master.Ctrl_Pokedeck;
 
 @SuppressWarnings("serial")
 public class DialogAddPokemon extends JDialog {
@@ -143,7 +144,7 @@ public class DialogAddPokemon extends JDialog {
 							CBExpansion.getSelectedItem().toString(),
 							HP,
 							CBEvolStage.getSelectedItem().toString()};
-					Config.DECK.addCard(cardData);
+					Ctrl_Pokedeck.DECK.addCard(cardData);
 					dispose();
 				}
 			}
